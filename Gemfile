@@ -24,6 +24,7 @@ gem "sprockets", "< 4"
 gem "title"
 gem "tzinfo-data", platforms: %i[mingw x64_mingw mswin jruby]
 gem "webpacker"
+gem "waterdrop"
 
 group :development do
   gem "listen"
@@ -61,3 +62,4 @@ gem "simple_form"
 gem "spring-commands-rspec", group: :development
 gem "standard", group: :development
 gem "webdrivers", group: :test
+gem 'karafka'
