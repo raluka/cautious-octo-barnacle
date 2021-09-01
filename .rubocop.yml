@@ -16,7 +16,8 @@ AllCops:
     - 'tmp/**/*'
     - '.git/**/*'
     - 'bin/*'
-  TargetRubyVersion: <%= ::Gem::Version.new(config[:required_ruby_version]).segments[0..1].join(".") %>
+    - 'config/**/*'
+  TargetRubyVersion: 2.6.6
 
 Style/Documentation:
   Enabled: false
