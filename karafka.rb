@@ -35,8 +35,14 @@ end
 class KarafkaApp < Karafka::App
   setup do |config|
     config.kafka.seed_brokers = %w[kafka://127.0.0.1:9092]
-    config.client_id = 'example_app'
+    # client_id is used to identify the app in Kafka and provide the proper namespace
+    config.client_id = "blog_messages"
+    # By setting backend inline the processing of the events will happen in the karafka’s workers
+    # Alternatively, we can use Sidekiq for heavy processing, thanks to karafka sidekiq-backend gem
     config.backend = :inline
+    # For the sake of simplicity and the demonstration purposes, batch_processing is set to false.
+    # In such case, instead of dealing with a batch of messages (that would be available under params_batch method),
+    # we are going to have just params representing a single message.
     config.batch_fetching = false
   end
 
